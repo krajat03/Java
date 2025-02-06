@@ -1,5 +1,5 @@
 *
-!/**/
-!*.*
-.vscode
-.class
+!*/
+*.class
+.vscode/
+.*
