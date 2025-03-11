@@ -4,9 +4,9 @@ public class Converter {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         while (true) {
-            System.out.println("------------------------------------");
+            System.out.println("\n------------------------------------");
             System.out
-                    .print("1) Length \n2) Temprature \n3) Currency \n4) Speed \n5) Mass \n6) Exit\n-> Select option: ");
+                    .print("1) Length \n2) Temperature \n3) Currency \n4) Speed \n5) Mass \n6) Exit\n-> Select option: ");
             int choice = scanner.nextInt();
             switch (choice) {
                 case 1:
@@ -131,7 +131,7 @@ public class Converter {
         switch (option) {
             case 1:
                 System.out.println("*** km/hr to m/s ($) ***");
-                ms = speed * 0.277;
+                ms = speed * 0.27778;
                 System.out.printf("=> %.2f km/hr = %.2f m/s", speed, ms);
                 break;
             case 2:
