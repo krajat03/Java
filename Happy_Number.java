@@ -1,3 +1,4 @@
+import java.util.HashSet;
 import java.util.Scanner;
 
 public class Happy_Number {
@@ -6,21 +7,30 @@ public class Happy_Number {
         System.out.print("Enter number: ");
         int num = scanner.nextInt();
         scanner.close();
-        if (isHappynumber(num))
+        
+        if (isHappyNumber(num))
             System.out.println("-> It is a Happy Number");
         else
             System.out.println("-> It is not a Happy Number");
     }
 
-    public static boolean isHappynumber(int num) {
-        while (num != 1) {
+    public static boolean isHappyNumber(int num) {
+        HashSet<Integer> seenNumbers = new HashSet<>();
+
+        while (num != 1 && !seenNumbers.contains(num)) {
+            seenNumbers.add(num);
+            num = sumOfSquares(num);
+        }
+        return num == 1;
+    }
+
+    private static int sumOfSquares(int num) {
+        int sum = 0;
+        while (num > 0) {
             int digit = num % 10;
-            num += Math.sqrt(digit);
+            sum += digit * digit; // Square of the digit
             num /= 10;
         }
-        if (num == 1) {
-            return true;
-        }
-        return false;
+        return sum;
     }
 }
