@@ -7,7 +7,7 @@ public class RotateArray {
         int size = scanner.nextInt();
 
         int array[] = new int[size];
-
+        System.out.println("Enter elements of array:- ");
         arrayInput(array, scanner);
 
         System.out.print("Enter rotation position: ");
