@@ -1,9 +1,9 @@
 class Out {
-    void fun1() {
+    void fun1() { // non static or instace or object member function
         System.out.println("-> This is fun 1");
     }
 
-    void fun2() {
+    void fun2() { // non static or instace or object member function
         System.out.println("-> This is fun 2");
     }
 }
