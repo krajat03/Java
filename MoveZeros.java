@@ -21,11 +21,13 @@ public class MoveZeros {
 
     static void moveZeros(int[] array) {
         int i = 0, j = 1;
-        while (i < j && i < array.length && j < array.length) {
+        while (i < array.length && j < array.length) {
             if (array[i] == 0 && array[j] != 0) {
                 int temp = array[i];
                 array[i] = array[j];
                 array[j] = temp;
+                i++;
+                j++;
             } else if (array[i] == 0 && array[j] == 0) {
                 j++;
             } else {
