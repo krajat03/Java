@@ -7,11 +7,9 @@ public class ArrayFunctions {
         int[] array = createArray(scanner);
 
         // Take input of elements of array
-        System.out.println("Enter elements of array:- ");
         arrayInput(array, scanner);
 
         // Print array
-        System.out.println("Array is:- ");
         arrayOutput(array);
 
     }
@@ -26,6 +24,7 @@ public class ArrayFunctions {
     // Input function
     public static int[] arrayInput(int[] array, Scanner scanner) {
         for (int i = 0; i < array.length; i++) {
+            System.out.print("-> Enter element: ");
             array[i] = scanner.nextInt();
         }
         return array;
@@ -33,6 +32,7 @@ public class ArrayFunctions {
 
     // Output function
     public static void arrayOutput(int[] array) {
+        System.out.print("Array is:- \n-> ");
         for (int i : array) {
             System.out.print(i + " ");
         }
