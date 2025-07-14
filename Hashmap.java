@@ -23,5 +23,9 @@ public class Hashmap {
         // Get key value - .get
         System.out.println(map.get("India"));
         System.out.println(map.get("Nepal"));  // not present in the map
+
+        // Remove
+        map.remove("China");
+        System.out.println(map);
     }
 }
