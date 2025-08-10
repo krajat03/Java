@@ -13,16 +13,22 @@ public class Hashmap {
 
         System.out.println(map);
 
-        // Search -> with key
+        // Search -> key' value
         if (map.containsKey("India")) {
             System.out.println("Yes");
-        } else{
+        } else {
             System.out.println("No");
         }
 
+        // Search -> key
+        for (String key : map.keySet()) {
+            System.out.print(key + " ");
+        }
+        System.out.println();
+
         // Get key value - .get
         System.out.println(map.get("India"));
-        System.out.println(map.get("Nepal"));  // not present in the map
+        System.out.println(map.get("Nepal")); // not present in the map
 
         // Remove
         map.remove("China");
