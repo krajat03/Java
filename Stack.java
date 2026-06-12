@@ -1,119 +1,74 @@
-import java.util.Scanner;
-
-class MyStack {
-    Scanner scanner = new Scanner(System.in);
-    int capacity;
-    int[] stackarray;
-    int top;
-
-    MyStack(int size) {
-        capacity = size;
-        stackarray = new int[capacity];
-        top = -1;
-
-        System.out.println("-> Stack of size " + size + " created sucessfully!");
-    }
-
-    void push() {
-        if (top == capacity - 1) {
-            System.out.println("### Stack Overflow!");
-        } else {
-            System.out.print("-> Enter value: ");
-            int value = scanner.nextInt();
-            stackarray[++top] = value;
-            System.out.println("-> Value pushed sucessfully!");
-        }
-    }
-
-    int pop() {
-        if (top == -1) {
-            System.out.println("### Stack Underflow!");
-            return -1;
-        } else {
-            return stackarray[top--];
-        }
-    }
-
-    void peek() {
-        if (top == -1) {
-            System.out.println("### Stack is empty!");
-        } else {
-            System.out.println("-> Peek element is: " + stackarray[top]);
-        }
-    }
-
-    void isEmpty() {
-        if (top == -1) {
-            System.out.println("-> Yes, Stack is empty!");
-        } else {
-            System.out.println("-> Stack is not empty");
-        }
-    }
-
-    void isFull() {
-        if (top == capacity - 1) {
-            System.out.println("-> Yes, Stack is full!");
-        } else {
-            System.out.println("-> Stack is not full");
-        }
-    }
-
-    void display() {
-        if (top == -1) {
-            System.out.println("### Stack is empty!");
-        } else {
-            System.out.print("-> Elements are: ");
-            for (int i = top; i >= 0; i--) {
-                System.out.print(stackarray[i] + " ");
-            }
-            System.out.println();
-        }
-    }
-}
+import java.util.*;
 
 public class Stack {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter the size of stack: ");
-        int size = scanner.nextInt();
-        MyStack st = new MyStack(size);
+        Scanner sc = new Scanner(System.in);
+        System.out.print("-> Enter the size of the stack: ");
+        int size = sc.nextInt();
+
+        int[] stack = new int[size];
+
+        int top = -1;
 
         while (true) {
-            System.out.println("\n***************************************");
-            System.out.println("1) PUSH \n2) POP \n3) PEEK \n4) DISPLAY \n5) IS FULL \n6) IS EMPTY \n7) EXIT");
-            System.out.print("-> Select an option: ");
-            int option = scanner.nextInt();
+            System.out.println("\n1) Insertion");
+            System.out.println("2) Deletion");
+            System.out.println("3) Display");
+            System.out.println("4) Exit");
+            System.out.print("-> Choose an option: ");
+
+            int option = sc.nextInt();
 
             switch (option) {
                 case 1:
-                    st.push();
+                    top = insert(stack, top, size, sc);
                     break;
                 case 2:
-                    int popped = st.pop();
-                    if (popped != -1) {
-                        System.out.println("-> Popped element: " + popped);
-                    }
+                    top = delete(stack, top);
                     break;
                 case 3:
-                    st.peek();
+                    display(stack, top);
                     break;
                 case 4:
-                    st.display();
-                    break;
-                case 5:
-                    st.isFull();
-                    break;
-                case 6:
-                    st.isEmpty();
-                    break;
-                case 7:
-                    scanner.close();
-                    System.out.println("Exiting...");
+                    System.out.println("Bye bye!");
+                    sc.close();
                     return;
                 default:
-                    System.out.println("Invalid option, try again!\n");
+                    System.out.println("Invalid option!, try again...");
                     break;
             }
+        }
+    }
+
+    private static int insert(int[] stack, int top, int size, Scanner scanner) {
+        if (top == size - 1) {
+            System.out.println("Sack overflow!");
+        } else {
+            System.out.print("-> Enter value: ");
+            stack[++top] = scanner.nextInt();
+            System.out.println("Value inserted successfully!");
+        }
+        return top;
+    }
+
+    private static int delete(int[] stack, int top) {
+        if (top == -1) {
+            System.out.println("Stack underflow!");
+        } else {
+            System.out.println(stack[top--] + " deleted successfully!");
+        }
+        return top;
+    }
+
+    private static void display(int[] stack, int top) {
+        if (top == -1) {
+            System.out.println("Stack is empty!");
+        } else {
+            System.out.println("Stack is: ");
+            for (int i = top; i >= 0; i--) {
+                System.out.println("|  " + stack[i] + "  |");
+            }
+            System.out.println("+-----+");
         }
     }
 }
