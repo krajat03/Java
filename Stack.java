@@ -11,8 +11,8 @@ public class Stack {
         int top = -1;
 
         while (true) {
-            System.out.println("\n1) Insertion");
-            System.out.println("2) Deletion");
+            System.out.println("\n1) Push");
+            System.out.println("2) Pop");
             System.out.println("3) Display");
             System.out.println("4) Exit");
             System.out.print("-> Choose an option: ");
@@ -21,10 +21,10 @@ public class Stack {
 
             switch (option) {
                 case 1:
-                    top = insert(stack, top, size, sc);
+                    top = push(stack, top, size, sc);
                     break;
                 case 2:
-                    top = delete(stack, top);
+                    top = pop(stack, top);
                     break;
                 case 3:
                     display(stack, top);
@@ -40,7 +40,7 @@ public class Stack {
         }
     }
 
-    private static int insert(int[] stack, int top, int size, Scanner scanner) {
+    private static int push(int[] stack, int top, int size, Scanner scanner) {
         if (top == size - 1) {
             System.out.println("Sack overflow!");
         } else {
@@ -51,7 +51,7 @@ public class Stack {
         return top;
     }
 
-    private static int delete(int[] stack, int top) {
+    private static int pop(int[] stack, int top) {
         if (top == -1) {
             System.out.println("Stack underflow!");
         } else {
