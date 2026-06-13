@@ -1,4 +1,4 @@
-import java.util.*;
+import java.util.Scanner;
 
 public class Zero_One_Triangle {
     public static void main(String[] args) {

@@ -5,7 +5,6 @@ public class Valid_Palindrome {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter string: ");
         String string = scanner.nextLine();
-        scanner.close();
 
         boolean check = validPalindrome(string);
         System.out.println("-> " + check);
