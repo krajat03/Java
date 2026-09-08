@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
-
+import java.util.Queue;
+import java.util.LinkedList;
 public class GraphFunctions {
     public static Scanner sc = new Scanner(System.in);
 
@@ -59,6 +60,48 @@ public class GraphFunctions {
                 System.out.print(graph.get(i).get(j) + " ");
             }
             System.out.println();
+        }
+    }
+
+    public static ArrayList<Integer> graphBFS(ArrayList<ArrayList<Integer>> graph) {
+        ArrayList<Integer> bfs = new ArrayList<>();
+
+        Queue<Integer> q = new LinkedList();
+
+        System.out.print("-> Enter starting node: ");
+        int start = sc.nextInt();
+        q.add(start);
+
+        boolean[] vis = new boolean[graph.size()];
+        vis[start] = true;
+        System.out.println(start);
+
+        while (!q.isEmpty()) {
+            int curr = q.poll();
+            bfs.add(curr);
+            for (int nei : graph.get(curr)) {
+                if (!vis[nei]) {
+                    vis[nei] = true;
+                    q.add(nei);
+                }
+            }
+        }
+
+        return bfs;
+    }
+
+    public static void graphDFS(ArrayList<ArrayList<Integer>> graph, boolean[] vis, int node, ArrayList<Integer> dfs) {
+        if (vis[node]) {
+            return;
+        }
+
+        vis[node] = true;
+        dfs.add(node);
+
+        for (int nei : graph.get(node)) {
+            if (!vis[nei]) {
+                graphDFS(graph, vis, nei, dfs);
+            }
         }
     }
 }
